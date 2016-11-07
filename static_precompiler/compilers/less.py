@@ -21,10 +21,11 @@ class LESS(base.BaseCompiler):
     IMPORT_RE = re.compile(r"@import\s+(.+?)\s*;", re.DOTALL)
     IMPORT_ITEM_RE = re.compile(r"([\"'])(.+?)\1")
 
-    def __init__(self, executable=settings.LESS_EXECUTABLE, sourcemap_enabled=False, global_vars=None):
+    def __init__(self, executable=settings.LESS_EXECUTABLE, sourcemap_enabled=False, global_vars=None, compress=True):
         self.executable = executable
         self.is_sourcemap_enabled = sourcemap_enabled
         self.global_vars = global_vars
+        self.compress = compress
         super(LESS, self).__init__()
 
     def should_compile(self, source_path, from_management=False):
