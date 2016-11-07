@@ -48,6 +48,10 @@ class LESS(base.BaseCompiler):
             args.extend([
                 "--source-map"
             ])
+        if self.compress:
+            args.extend([
+                "--compress"
+            ])
         if self.global_vars:
             for variable_name, variable_value in self.global_vars.items():
                 args.extend([
